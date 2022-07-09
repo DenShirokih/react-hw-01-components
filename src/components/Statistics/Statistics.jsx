@@ -1,3 +1,5 @@
+import { prettyFormat } from '@testing-library/react';
+import PropTypes from 'prop-types';
 import styles from './Statistics.module.css';
 export const Statistics = ({ title, statisticsData }) => {
   return (
@@ -14,4 +16,15 @@ export const Statistics = ({ title, statisticsData }) => {
       </ul>
     </section>
   );
+};
+
+Statistics.propTypes = {
+  title: PropTypes.string.isRequired,
+  statisticsData: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ),
 };
